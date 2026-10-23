@@ -11,7 +11,9 @@ def find_card(img):
     dark=np.where(g.mean(axis=1)<120)[0]
     dark=dark[dark>h*0.4]
     ymax=int(dark.min())-30 if len(dark) else h
-    reg=img[:ymax]
+    top=np.where(g.mean(axis=1)<120)[0];top=top[top<h*0.2]
+    ymin=int(top.max())+30 if len(top) else 0
+    reg=img[ymin:ymax]
     gb=cv2.GaussianBlur(cv2.cvtColor(reg,cv2.COLOR_BGR2GRAY),(0,0),2).astype(np.float32)
     H0,W0=gb.shape
     yy,xx=np.mgrid[0:H0,0:W0]
@@ -39,7 +41,8 @@ def find_card(img):
             if not (0.6<min(rw,rh)/max(rw,rh)<0.8): continue
             good.append((a,r))
         if good: break
-    return max(good,key=lambda t:t[0])[1]
+    r=max(good,key=lambda t:t[0])[1]
+    return ((r[0][0],r[0][1]+ymin),r[1],r[2])
 def find_back(img):
     h,w=img.shape[:2]
     g=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -98,7 +101,20 @@ def corners(card,n=0.40):
 if __name__=="__main__":
     src,pre=sys.argv[1],sys.argv[2]
     img=cv2.imread(src)
-    card=warp(img,find_back(img) if '--back' in sys.argv else find_card(img))
+    asp=lambda c:min(c.shape[:2])/max(c.shape[:2])
+    if '--rect' in sys.argv:  # manuell: --rect x0,y0,x1,y1 (Pixel im Originalfoto), nur wenn WARN kam
+        x0,y0,x1,y1=[float(v) for v in sys.argv[sys.argv.index('--rect')+1].split(',')]
+        card=warp(img,(((x0+x1)/2,(y0+y1)/2),(x1-x0,y1-y0),0))
+    else:
+        cands=[find_back,find_card] if '--back' in sys.argv else [find_card,find_back]
+        card=None
+        for fn in cands:
+            try: c=warp(img,fn(img))
+            except Exception: continue
+            if .66<asp(c)<.80 and min(c.shape[:2])>600: card=c;break
+            card=card if card is not None else c
+        if card is None: print('WARN keine Karte gefunden');sys.exit(3)
+        if not (.66<asp(card)<.80): print('WARN Zuschnitt verdaechtig (Seitenverhaeltnis %.2f), Ergebnis pruefen, ggf. --rect'%asp(card))
     if card.shape[1]>card.shape[0]:
         card=cv2.rotate(card,cv2.ROTATE_90_CLOCKWISE) if False else card  # Querformat bleibt
     # Hochformat-Karten: Ausgabe immer in 'aufrechter' Lage der Aufnahme
