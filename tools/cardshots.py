@@ -66,6 +66,30 @@ def warp(img,rect):
     dst=np.array([[0,0],[W-1,0],[W-1,H-1],[0,H-1]],np.float32)
     M=cv2.getPerspectiveTransform(np.array([tl,tr,br,bl],np.float32),dst)
     return cv2.warpPerspective(img,M,(W,H),flags=cv2.INTER_CUBIC)
+def trim_bars(card,maxfrac=0.12):
+    """Entfernt graue/helle Randbalken (Papier/Schatten ausserhalb der Karte) an jeder Seite.
+    Balken = aeussere Zeilen/Spalten, die gleichmaessig hellgrau+unbunt sind (Grau 150..228, Saettigung<35,
+    geringe Streuung) UND deutlich (>18 Graustufen) von der Zeile direkt dahinter abweichen.
+    Gibt (card, {seite:px}) zurueck."""
+    g=cv2.cvtColor(card,cv2.COLOR_BGR2GRAY).astype(np.float32)
+    sa=cv2.cvtColor(card,cv2.COLOR_BGR2HSV)[:,:,1].astype(np.float32)
+    H,W=g.shape;cut={}
+    def scan(gl,sl,n):
+        # gl/sl: 2D-Arrays so gedreht, dass die aeussere Kante unten liegt; n=max Tiefe
+        k=0
+        for i in range(1,n):
+            row=gl[-i,int(gl.shape[1]*.2):int(gl.shape[1]*.8)];sr=sl[-i,int(gl.shape[1]*.2):int(gl.shape[1]*.8)]
+            if 150<=np.median(row)<=228 and np.median(sr)<35 and row.std()<14: k=i
+            else: break
+        if k<6: return 0
+        inner=np.median(gl[-k-16:-k-8,int(gl.shape[1]*.2):int(gl.shape[1]*.8)]);bar=np.median(gl[-k:,int(gl.shape[1]*.2):int(gl.shape[1]*.8)])
+        return k if abs(inner-bar)>18 else 0
+    cut['bottom']=scan(g,sa,int(H*maxfrac))
+    cut['top']=scan(g[::-1],sa[::-1],int(H*maxfrac))
+    cut['right']=scan(g.T,sa.T,int(W*maxfrac))
+    cut['left']=scan(g.T[::-1],sa.T[::-1],int(W*maxfrac))
+    y0,y1,x0,x1=cut['top'],H-cut['bottom'],cut['left'],W-cut['right']
+    return card[y0:y1,x0:x1],cut
 def compose(card,frac=0.89):
     """Referenz des Nutzers (Okt 2026): Karte 89% der Hoehe, exakt mittig, weisser Hintergrund,
     Schatten nur rechts/unten: Versatz (97,155) px, sigma 28, Staerke 0.265 (Grau ~188), vom Bildrand beschnitten."""
@@ -115,6 +139,9 @@ if __name__=="__main__":
             card=card if card is not None else c
         if card is None: print('WARN keine Karte gefunden');sys.exit(3)
         if not (.66<asp(card)<.80): print('WARN Zuschnitt verdaechtig (Seitenverhaeltnis %.2f), Ergebnis pruefen, ggf. --rect'%asp(card))
+    if '--no-trim' not in sys.argv:
+        card,cut=trim_bars(card)
+        if any(cut.values()): print('TRIM Randbalken entfernt:',{k:v for k,v in cut.items() if v})
     if card.shape[1]>card.shape[0]:
         card=cv2.rotate(card,cv2.ROTATE_90_CLOCKWISE) if False else card  # Querformat bleibt
     # Hochformat-Karten: Ausgabe immer in 'aufrechter' Lage der Aufnahme
