@@ -82,7 +82,7 @@ def compose(card,frac=0.89):
     can[y:y+ch,x:x+cw]=c
     return can
 
-def corners(card,n=0.26):
+def corners(card,n=0.40):
     m=int(card.shape[1]*0.06);card=cv2.copyMakeBorder(card,m,m,m,m,cv2.BORDER_CONSTANT,value=(255,255,255))
     h,w=card.shape[:2];a=int(w*n*1.0);b=int(w*n*1.0)
     out=[]

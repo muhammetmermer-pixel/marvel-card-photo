@@ -80,6 +80,9 @@ for x in chk:
         if rel not in tr:untracked.append(rel)
 print(len(chk),'Zeilen; SKU eindeutig:',len({x[1] for x in chk})==len(chk))
 for x in chk:print(x[1],len(x[col('Title')]),x[col('Title')],x[col('Price')])
+for c in cfg['cards']:
+    g=cv2.cvtColor(cv2.imread(f"{B}/{c['sku']}_01.jpg"),cv2.COLOR_BGR2GRAY)
+    if not (172<=int(g[1590,800])<=200 and int(g[800,1595])>=250 or 172<=int(g[1590,800])<=200): bad.append((c['sku'],'Schatten weicht von Referenz ab (unten x800 soll ~188 sein)'))
 print('FEHLER:',bad or 'keine');
 if '--push' in sys.argv:
     sh('git','add','-A');sh('git','commit','-m','Charge '+cfg['batch']+'\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Nhf8YURBuv4PxJSm4SMYvF')
