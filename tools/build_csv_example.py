@@ -1,6 +1,6 @@
 import csv,subprocess
 R='https://raw.githubusercontent.com/muhammetmermer-pixel/marvel-card-photo/'
-BR='photos-20261023-3'; BD='batch/20261023-3'
+BR='<branch>'; BD='batch/<name>'   # pro Charge setzen
 LOGO=R+'marvel-pipeline/templates/logo_collectors_frankfurt.png'
 tpl=open('templates/description_template.html',encoding='utf-8').read()
 rows=list(csv.reader(open('templates/ebay_template_draft_utf8bom.csv',encoding='utf-8-sig'),delimiter=';'))
@@ -18,7 +18,7 @@ out=[]
 for sku,sea,pl,team,land,no,title in cards:
     urls=[f"{R}{BR}/{BD}/{sku}_0{i}.jpg" for i in range(1,7)]
     d=tpl
-    for k,v in {'{{LOGO_URL}}':LOGO,'{{FRONT_URL}}':urls[0],'{{PLAYER}}':pl,'{{TEAM}}':team,'{{SET}}':SET,'{{CARD_NO}}':no,'{{PARALLEL}}':'Standard','{{NUMBERING_ROW}}':'','{{AUTOGRAPH_ROW}}':''}.items(): d=d.replace(k,v)
+    for k,v in {'{{LOGO_URL}}':LOGO,'{{FRONT_URL}}':urls[0],'{{TITLE}}':title,**{('{{IMG%d}}'%(i+1)):u for i,u in enumerate(urls)},'{{PLAYER}}':pl,'{{TEAM}}':team,'{{SET}}':SET,'{{CARD_NO}}':no,'{{PARALLEL}}':'Standard','{{NUMBERING_ROW}}':'','{{AUTOGRAPH_ROW}}':''}.items(): d=d.replace(k,v)
     d=d.replace('\n','')
     r=['']*ncol
     def s(h,v):
@@ -31,9 +31,10 @@ for sku,sea,pl,team,land,no,title in cards:
     s('C:Sprache','Englisch');s('C:Veranstaltung/Turnier','UEFA Champions League');s('C:Original/Lizenzierter','Original');s('C:Material','Pappe');s('C:Insert Set','Last Dance');s('C:Maßgefertigt','Nein');s('C:Saison',sea);s('C:Herstellungsjahr','2025')
     s('Manufacturer Name','Topps Europe Limited');s('Manufacturer AddressLine1','18 Vincent Avenue');s('Manufacturer City','Milton Keynes');s('Manufacturer StateOrProvince','England');s('Manufacturer PostalCode','MK8 0AW');s('Manufacturer Country','GB');s('Manufacturer Email','infoen@toppsdirect.com')
     out.append(r)
-p='/mnt/user-data/outputs/ebay_upload_20261023_v3.csv'
+p='batch/<name>/ebay_upload.csv'
 with open(p,'w',encoding='utf-8-sig',newline='') as f:
     w=csv.writer(f,delimiter=';');w.writerows(head);w.writerows(out)
+# Zeilen Numbering/Autograph nur bei nummerierten bzw. signierten Karten: '<tr><td><b>Numbering</b></td><td>/99</td></tr>' statt ''
 # Prüfung
 chk=list(csv.reader(open(p,encoding='utf-8-sig'),delimiter=';'))
 data=chk[5:];tracked=set(subprocess.check_output(['git','ls-files'],text=True).split('\n'))

@@ -63,21 +63,25 @@ def warp(img,rect):
     dst=np.array([[0,0],[W-1,0],[W-1,H-1],[0,H-1]],np.float32)
     M=cv2.getPerspectiveTransform(np.array([tl,tr,br,bl],np.float32),dst)
     return cv2.warpPerspective(img,M,(W,H),flags=cv2.INTER_CUBIC)
-def compose(card,frac=0.86):
-    t=3  # Randsaum der Freistellung abschneiden (keine grauen Kanten)
+def compose(card,frac=0.89):
+    """Referenz des Nutzers (Okt 2026): Karte 89% der Hoehe, exakt mittig, weisser Hintergrund,
+    Schatten nur rechts/unten: Versatz (97,155) px, sigma 28, Staerke 0.265 (Grau ~188), vom Bildrand beschnitten."""
+    t=3  # Randsaum der Freistellung abschneiden
     card=card[t:-t,t:-t]
     h,w=card.shape[:2]
     sc=min(S*frac/w,S*frac/h)
     c=cv2.resize(card,(int(w*sc),int(h*sc)),interpolation=cv2.INTER_AREA)
     ch,cw=c.shape[:2]
     can=np.full((S,S,3),255,np.uint8)
-    x=(S-cw)//2-8;y=(S-ch)//2-8   # Karte + Schatten gemeinsam zentriert
-    off=22
-    sh=np.zeros((S,S),np.float32); sh[y+off:y+ch+off,x+off:x+cw+off]=1
-    sh=cv2.GaussianBlur(sh,(0,0),9)*0.30   # Versatz > Weichzeichner: kein Halo oben/links
+    x=(S-cw)//2;y=(S-ch)//2
+    dx,dy=97,155
+    sh=np.zeros((S,S),np.float32)
+    sh[max(0,y+dy):min(S,y+ch+dy),max(0,x+dx):min(S,x+cw+dx)]=1
+    sh=cv2.GaussianBlur(sh,(0,0),28)*0.265
     can=(can*(1-sh[...,None])).astype(np.uint8)
     can[y:y+ch,x:x+cw]=c
     return can
+
 def corners(card,n=0.26):
     m=int(card.shape[1]*0.06);card=cv2.copyMakeBorder(card,m,m,m,m,cv2.BORDER_CONSTANT,value=(255,255,255))
     h,w=card.shape[:2];a=int(w*n*1.0);b=int(w*n*1.0)
