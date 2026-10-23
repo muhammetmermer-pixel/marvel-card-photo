@@ -31,7 +31,7 @@ def find_card(img):
         good=[]
         for c in cs:
             a=cv2.contourArea(c)
-            if a<40000: continue
+            if a<300000: continue
             x,y,bw,bh=cv2.boundingRect(c)
             if x<5 or y<5 or x+bw>W-5 or y+bh>H-5: continue
             r=cv2.minAreaRect(c);rw,rh=r[1]
@@ -40,6 +40,19 @@ def find_card(img):
             good.append((a,r))
         if good: break
     return max(good,key=lambda t:t[0])[1]
+def find_back(img):
+    h,w=img.shape[:2]
+    g=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    dark=np.where(g.mean(axis=1)<120)[0];dark=dark[dark>h*0.4]
+    ymax=int(dark.min())-30 if len(dark) else h
+    reg=img[:ymax]
+    sat=cv2.GaussianBlur(cv2.cvtColor(reg,cv2.COLOR_BGR2HSV)[:,:,1],(0,0),2)
+    m=(sat>24).astype(np.uint8)*255
+    m=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((31,31),np.uint8))
+    m=cv2.morphologyEx(m,cv2.MORPH_OPEN,np.ones((9,9),np.uint8))
+    cs,_=cv2.findContours(m,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    c=max(cs,key=cv2.contourArea)
+    return cv2.minAreaRect(c)
 def warp(img,rect):
     (cx,cy),(rw,rh),ang=rect
     box=cv2.boxPoints(rect)
@@ -58,8 +71,8 @@ def compose(card,frac=0.80):
     ch,cw=c.shape[:2]
     can=np.full((S,S,3),255,np.uint8)
     x=(S-cw)//2;y=(S-ch)//2
-    sh=np.zeros((S,S),np.float32); sh[y+14:y+ch+14,x+14:x+cw+14]=1
-    sh=cv2.GaussianBlur(sh,(0,0),16)*0.38
+    sh=np.zeros((S,S),np.float32); sh[y+8:y+ch+8,x+8:x+cw+8]=1
+    sh=cv2.GaussianBlur(sh,(0,0),16)*0.18
     can=(can*(1-sh[...,None])).astype(np.uint8)
     can[y:y+ch,x:x+cw]=c
     return can
@@ -79,7 +92,7 @@ def corners(card,n=0.26):
 if __name__=="__main__":
     src,pre=sys.argv[1],sys.argv[2]
     img=cv2.imread(src)
-    card=warp(img,find_card(img))
+    card=warp(img,find_back(img) if '--back' in sys.argv else find_card(img))
     if card.shape[1]>card.shape[0]:
         card=cv2.rotate(card,cv2.ROTATE_90_CLOCKWISE) if False else card  # Querformat bleibt
     # Hochformat-Karten: Ausgabe immer in 'aufrechter' Lage der Aufnahme
