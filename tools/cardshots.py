@@ -11,7 +11,9 @@ def find_card(img):
     dark=np.where(g.mean(axis=1)<120)[0]
     dark=dark[dark>h*0.4]
     ymax=int(dark.min())-30 if len(dark) else h
-    reg=img[:ymax]
+    top=np.where(g.mean(axis=1)<120)[0];top=top[top<h*0.2]
+    ymin=int(top.max())+30 if len(top) else 0
+    reg=img[ymin:ymax]
     gb=cv2.GaussianBlur(cv2.cvtColor(reg,cv2.COLOR_BGR2GRAY),(0,0),2).astype(np.float32)
     H0,W0=gb.shape
     yy,xx=np.mgrid[0:H0,0:W0]
@@ -39,7 +41,8 @@ def find_card(img):
             if not (0.6<min(rw,rh)/max(rw,rh)<0.8): continue
             good.append((a,r))
         if good: break
-    return max(good,key=lambda t:t[0])[1]
+    r=max(good,key=lambda t:t[0])[1]
+    return ((r[0][0],r[0][1]+ymin),r[1],r[2])
 def find_back(img):
     h,w=img.shape[:2]
     g=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
