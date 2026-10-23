@@ -28,8 +28,8 @@ if not skip:
     for c in cfg['cards']:
         s=c['sku'];U=f"{cfg['uploads']}/{cfg.get('prefix','IMG_')}%s.{cfg.get('ext','jpeg')}"
         try:
-            o=sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners')
-            o+=sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back')
+            o=sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners',*(['--rect',c['rf']] if c.get('rf') else []))
+            o+=sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back',*(['--rect',c['rb']] if c.get('rb') else []))
             for l in o.splitlines():
                 if l.startswith('WARN'):warns.append((s,l))
             os.rename(f'{B}/{s}_front.jpg',f'{B}/{s}_01.jpg')
@@ -90,6 +90,16 @@ for x in chk:print(x[1],len(x[col('Title')]),x[col('Title')],x[col('Price')])
 for c in cfg['cards']:
     g=cv2.cvtColor(cv2.imread(f"{B}/{c['sku']}_01.jpg"),cv2.COLOR_BGR2GRAY)
     if not (172<=int(g[1590,800])<=200 and int(g[800,1595])>=250 or 172<=int(g[1590,800])<=200): bad.append((c['sku'],'Schatten weicht von Referenz ab (unten x800 soll ~188 sein)'))
+# 4b Titel-/Nummern-Konsistenz (Skill 4, 4b)
+import re as _re
+for c in cfg['cards']:
+    t=c['title'];ser=c.get('serial');aut=c.get('autograph',False)
+    if bool(_re.search(r'/\d{2,3}\b',t))!=bool(ser):bad.append((c['sku'],'Titel hat /N genau dann, wenn serial gesetzt'))
+    if 'Numbered' in t and not ser:bad.append((c['sku'],'Numbered ohne gelesene Nummer'))
+    if not aut and not t.endswith('No Auto'):bad.append((c['sku'],'Nicht-Autogramm: Titel muss auf "No Auto" enden'))
+    if c.get('serial_conf')=='unsicher' and ser:bad.append((c['sku'],'serial unsicher, aber im Titel'))
+unsicher=[c['sku'] for c in cfg['cards'] if c.get('serial_conf')=='unsicher' or c.get('set_unsicher')]
+print('UNSICHER (Bericht: manuell pruefen):',unsicher or 'keine')
 print('FEHLER:',bad or 'keine');
 if '--push' in sys.argv:
     sh('git','add','-A');sh('git','commit','-m','Charge '+cfg['batch']+os.environ.get('COMMIT_TRAILER',''))
