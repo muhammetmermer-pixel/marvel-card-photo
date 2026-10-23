@@ -28,8 +28,8 @@ if not skip:
     for c in cfg['cards']:
         s=c['sku'];U=f"{cfg['uploads']}/{cfg.get('prefix','IMG_')}%s.{cfg.get('ext','jpeg')}"
         try:
-            o=sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners')
-            o+=sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back')
+            o=sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners',*(['--rect',c['rf']] if c.get('rf') else []))
+            o+=sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back',*(['--rect',c['rb']] if c.get('rb') else []))
             for l in o.splitlines():
                 if l.startswith('WARN'):warns.append((s,l))
             os.rename(f'{B}/{s}_front.jpg',f'{B}/{s}_01.jpg')
