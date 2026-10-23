@@ -21,21 +21,28 @@ TOPPS=dict(zip(['Manufacturer Name','Manufacturer AddressLine1','Manufacturer Ci
 FIX={'Action':'Draft','Category ID':'261328','Quantity':'1','Condition ID':'4000','VAT%':'0','CD:Kartenzustand':'400010','Format':'FixedPrice'}
 cfg=json.load(open(sys.argv[1]));skip='--skip-photos' in sys.argv
 B='batch/'+cfg['batch'];os.makedirs(B,exist_ok=True)
-def sh(*a): subprocess.run(a,check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+def sh(*a): return subprocess.run(a,check=True,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL,text=True).stdout
 # 1 Fotos
+warns=[];fails=[];okc=[]
 if not skip:
     for c in cfg['cards']:
         s=c['sku'];U=f"{cfg['uploads']}/{cfg.get('prefix','IMG_')}%s.{cfg.get('ext','jpeg')}"
-        sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners')
-        sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back')
-        os.rename(f'{B}/{s}_front.jpg',f'{B}/{s}_01.jpg')
-        for i in range(1,5): os.rename(f'{B}/{s}_c{i}.jpg',f'{B}/{s}_0{i+1}.jpg')
-        os.rename(f'{B}/{s}b_front.jpg',f'{B}/{s}_06.jpg')
+        try:
+            o=sh('python3','tools/cardshots.py',U%c['front'],f'{B}/{s}','--corners')
+            o+=sh('python3','tools/cardshots.py',U%c['back'],f'{B}/{s}b','--back')
+            for l in o.splitlines():
+                if l.startswith('WARN'):warns.append((s,l))
+            os.rename(f'{B}/{s}_front.jpg',f'{B}/{s}_01.jpg')
+            for i in range(1,5): os.rename(f'{B}/{s}_c{i}.jpg',f'{B}/{s}_0{i+1}.jpg')
+            os.rename(f'{B}/{s}b_front.jpg',f'{B}/{s}_06.jpg');okc.append(c)
+        except Exception as e: fails.append((s,str(e)[:60]))
+    cfg['cards']=okc
+    print('FOTO-FEHLER (Karte fehlt in CSV, Foto neu/--rect):',fails or 'keine');print('FOTO-WARNUNGEN:',warns or 'keine')
 # 2 Kontaktbogen (300 px): Vorderseiten oben, Rueckseiten unten
-ims=lambda k:[cv2.resize(cv2.imread(f"{B}/{c['sku']}_{k}.jpg"),(300,300)) for c in cfg['cards']]
-for k0 in range(0,len(cfg['cards']),8):
-    f=ims('01')[k0:k0+8];b=ims('06')[k0:k0+8]
-    cv2.imwrite(f'/tmp/sheet_{k0//8}.jpg',np.vstack([np.hstack(f),np.hstack(b)]))
+ims=lambda k:[cv2.resize(cv2.imread(f"{B}/{c['sku']}_{k}.jpg"),(240,240)) for c in cfg['cards']]
+F,K=ims('01'),ims('06')
+for k0 in range(0,len(F),12):
+    cv2.imwrite(f'/tmp/sheet_{k0//12}.jpg',np.vstack([np.hstack(F[k0:k0+12]),np.hstack(K[k0:k0+12])]))
 # 3 CSV
 tpl=open('templates/description_template.html',encoding='utf-8').read()
 rows=list(csv.reader(open('templates/ebay_template_draft_utf8bom.csv',encoding='utf-8-sig'),delimiter=';'))
@@ -85,9 +92,10 @@ for c in cfg['cards']:
     if not (172<=int(g[1590,800])<=200 and int(g[800,1595])>=250 or 172<=int(g[1590,800])<=200): bad.append((c['sku'],'Schatten weicht von Referenz ab (unten x800 soll ~188 sein)'))
 print('FEHLER:',bad or 'keine');
 if '--push' in sys.argv:
-    sh('git','add','-A');sh('git','commit','-m','Charge '+cfg['batch']+'\n\nCo-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>\nClaude-Session: https://claude.ai/code/session_01Nhf8YURBuv4PxJSm4SMYvF')
+    sh('git','add','-A');sh('git','commit','-m','Charge '+cfg['batch']+os.environ.get('COMMIT_TRAILER',''))
     sh('git','push','-u','origin',cfg['branch'])
     print('gepusht')
 else:
     print('noch nicht in git (vor Upload --push oder commit):',len(set(untracked)),'Dateien')
+print('HOCHPREIS >39.90 (anderer Versand, Skill H.6b):',[c['sku'] for c in cfg['cards'] if float(c.get('price',D.get('price','9.90')))>39.9] or 'keine')
 print('CSV:',p,'| Kontaktbogen: /tmp/sheet_0.jpg')

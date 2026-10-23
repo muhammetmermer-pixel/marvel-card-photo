@@ -101,7 +101,20 @@ def corners(card,n=0.40):
 if __name__=="__main__":
     src,pre=sys.argv[1],sys.argv[2]
     img=cv2.imread(src)
-    card=warp(img,find_back(img) if '--back' in sys.argv else find_card(img))
+    asp=lambda c:min(c.shape[:2])/max(c.shape[:2])
+    if '--rect' in sys.argv:  # manuell: --rect x0,y0,x1,y1 (Pixel im Originalfoto), nur wenn WARN kam
+        x0,y0,x1,y1=[float(v) for v in sys.argv[sys.argv.index('--rect')+1].split(',')]
+        card=warp(img,(((x0+x1)/2,(y0+y1)/2),(x1-x0,y1-y0),0))
+    else:
+        cands=[find_back,find_card] if '--back' in sys.argv else [find_card,find_back]
+        card=None
+        for fn in cands:
+            try: c=warp(img,fn(img))
+            except Exception: continue
+            if .66<asp(c)<.80 and min(c.shape[:2])>600: card=c;break
+            card=card if card is not None else c
+        if card is None: print('WARN keine Karte gefunden');sys.exit(3)
+        if not (.66<asp(card)<.80): print('WARN Zuschnitt verdaechtig (Seitenverhaeltnis %.2f), Ergebnis pruefen, ggf. --rect'%asp(card))
     if card.shape[1]>card.shape[0]:
         card=cv2.rotate(card,cv2.ROTATE_90_CLOCKWISE) if False else card  # Querformat bleibt
     # Hochformat-Karten: Ausgabe immer in 'aufrechter' Lage der Aufnahme
