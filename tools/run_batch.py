@@ -78,14 +78,14 @@ for x in chk:
     t=x[col('Title')];pr=x[col('Price')];u=x[col('Item photo URL')].split('|')
     if len(x)!=n:bad.append((x[1],'Spalten'))
     if not 73<=len(t)<=80:bad.append((x[1],'Titellaenge %d'%len(t)))
-    if not (pr.endswith('.90') and float(pr)>=9.9):bad.append((x[1],'Preis '+pr))
+    if not (pr.endswith('.90') and float(pr)>=cfg.get('min_price',2.9)):bad.append((x[1],'Preis '+pr))
     if len(u)!=6:bad.append((x[1],'Links'))
     d=x[col('Description')]
     if '{{' in d or 'passion' in d.lower():bad.append((x[1],'Beschreibung'))
     for l in u:
         rel=l.split(cfg['branch']+'/')[1]
         if rel not in tr:untracked.append(rel)
-print(len(chk),'Zeilen; SKU eindeutig:',len({x[1] for x in chk})==len(chk))
+print('MwSt-Spalte:',{x[col('VAT%')] for x in chk},'(muss {0} sein)');print(len(chk),'Zeilen; SKU eindeutig:',len({x[1] for x in chk})==len(chk))
 for x in chk:print(x[1],len(x[col('Title')]),x[col('Title')],x[col('Price')])
 for c in cfg['cards']:
     g=cv2.cvtColor(cv2.imread(f"{B}/{c['sku']}_01.jpg"),cv2.COLOR_BGR2GRAY)
@@ -93,11 +93,16 @@ for c in cfg['cards']:
 # 4b Titel-/Nummern-Konsistenz (Skill 4, 4b)
 import re as _re
 for c in cfg['cards']:
-    t=c['title'];ser=c.get('serial');aut=c.get('autograph',False)
+    t=c['title'];ser=c.get('serial') or c.get('serial_den');aut=c.get('autograph',False)
     if bool(_re.search(r'/\d{2,3}\b',t))!=bool(ser):bad.append((c['sku'],'Titel hat /N genau dann, wenn serial gesetzt'))
     if 'Numbered' in t and not ser:bad.append((c['sku'],'Numbered ohne gelesene Nummer'))
     if not aut and not t.endswith('No Auto'):bad.append((c['sku'],'Nicht-Autogramm: Titel muss auf "No Auto" enden'))
     if c.get('serial_conf')=='unsicher' and ser:bad.append((c['sku'],'serial unsicher, aber im Titel'))
+for c in cfg['cards']:
+    sp={**D.get('specifics',{}),**c.get('specifics',{})}
+    need=['C:Hersteller','C:Spieler/Sportler','C:Team','C:Saison','C:Liga','C:Parallel/Variante','C:Besonderheiten']+(['C:Auflage','C:Edition'] if (c.get('serial') or c.get('serial_den')) else [])
+    miss=[k for k in need if not sp.get(k)]
+    if miss:bad.append((c['sku'],'Merkmal fehlt: '+','.join(miss)))
 unsicher=[c['sku'] for c in cfg['cards'] if c.get('serial_conf')=='unsicher' or c.get('set_unsicher')]
 print('UNSICHER (Bericht: manuell pruefen):',unsicher or 'keine')
 print('FEHLER:',bad or 'keine');

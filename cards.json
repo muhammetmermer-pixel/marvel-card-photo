@@ -18,7 +18,7 @@
    "set": "Panini Select Premier League 2022-23",
    "parallel": "Terrace",
    "title": "Julian Alvarez RC Select Premier League 2022-23 Terrace Manchester City No Auto",
-   "price": "9.90",
+   "price": "4.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -44,7 +44,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Rookie, Terrace"
    }
   },
   {
@@ -60,7 +61,7 @@
    "set": "Panini Select Premier League 2022-23",
    "parallel": "Future",
    "title": "Julian Alvarez RC Select Premier League 2022-23 Future Manchester City No Auto",
-   "price": "9.90",
+   "price": "4.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -86,7 +87,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Rookie, Future"
    }
   },
   {
@@ -102,7 +104,7 @@
    "set": "Topps UEFA Club Competitions 2023-24",
    "parallel": "Cinematic Citizens",
    "title": "Cinematic Citizens /250 Topps UCL 2023-24 Manchester City Numbered No Auto",
-   "price": "19.90",
+   "price": "5.90",
    "autograph": false,
    "serial": "244/250",
    "serial_conf": "sicher",
@@ -123,7 +125,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Manchester City",
     "C:Insert Set": "",
-    "C:Auflage": "250"
+    "C:Auflage": "250",
+    "C:Besonderheiten": "Numbered, Cinematic Citizens, Insert",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -139,7 +143,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2023-24",
    "parallel": "Aqua Wave Refractor",
    "title": "Kevin De Bruyne /199 Topps Chrome UCL 2023-24 Aqua Wave Manchester City No Auto",
-   "price": "19.90",
+   "price": "4.90",
    "autograph": false,
    "serial": "043/199",
    "serial_conf": "sicher",
@@ -160,7 +164,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Kevin De Bruyne",
     "C:Insert Set": "",
-    "C:Auflage": "199"
+    "C:Auflage": "199",
+    "C:Besonderheiten": "Numbered, Aqua Wave Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -176,7 +182,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2023-24",
    "parallel": "Speckle Refractor",
    "title": "Jeremy Doku /299 Topps Chrome UCL 2023-24 Speckle Manchester City No Auto",
-   "price": "14.90",
+   "price": "3.90",
    "autograph": false,
    "serial": "234/299",
    "serial_conf": "sicher",
@@ -197,7 +203,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Jérémy Doku",
     "C:Insert Set": "",
-    "C:Auflage": "299"
+    "C:Auflage": "299",
+    "C:Besonderheiten": "Numbered, Speckle Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -213,7 +221,7 @@
    "set": "Topps UEFA Club Competitions 2023-24",
    "parallel": "Parallel",
    "title": "Rodri /99 Topps UCL 2023-24 Manchester City Midfielder Numbered Parallel No Auto",
-   "price": "14.90",
+   "price": "8.90",
    "autograph": false,
    "serial": "33/99",
    "serial_conf": "sicher",
@@ -234,7 +242,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Rodri",
     "C:Insert Set": "",
-    "C:Auflage": "99"
+    "C:Auflage": "99",
+    "C:Besonderheiten": "Numbered",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -250,7 +260,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2025-26",
    "parallel": "Blue Refractor",
    "title": "Omar Marmoush /150 Topps Chrome UCL 2025-26 Blue Refractor Man City No Auto",
-   "price": "14.90",
+   "price": "4.90",
    "autograph": false,
    "serial": "055/150",
    "serial_conf": "sicher",
@@ -271,7 +281,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Omar Marmoush",
     "C:Insert Set": "",
-    "C:Auflage": "150"
+    "C:Auflage": "150",
+    "C:Besonderheiten": "Numbered, Blue Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -287,7 +299,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2023-24",
    "parallel": "Aqua Refractor",
    "title": "Bernardo Silva /199 Topps Chrome UCL 2023-24 Aqua Refractor Man City No Auto",
-   "price": "14.90",
+   "price": "4.90",
    "autograph": false,
    "serial": "069/199",
    "serial_conf": "sicher",
@@ -308,7 +320,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Bernardo Silva",
     "C:Insert Set": "",
-    "C:Auflage": "199"
+    "C:Auflage": "199",
+    "C:Besonderheiten": "Numbered, Aqua Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -324,7 +338,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2025-26",
    "parallel": "Refractor",
    "title": "Tijjani Reijnders /75 Topps Chrome UCL 2025-26 Refractor Manchester City No Auto",
-   "price": "14.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "48/75",
    "serial_conf": "sicher",
@@ -345,7 +359,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Tijjani Reijnders",
     "C:Insert Set": "",
-    "C:Auflage": "75"
+    "C:Auflage": "75",
+    "C:Besonderheiten": "Numbered, Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -361,7 +377,7 @@
    "set": "Topps Inception UEFA Club Competitions 2025-26",
    "parallel": "Gold First XI",
    "title": "Gianluigi Donnarumma /150 Topps Inception UCL First XI Manchester City No Auto",
-   "price": "14.90",
+   "price": "9.90",
    "autograph": false,
    "serial": "025/150",
    "serial_conf": "sicher",
@@ -382,7 +398,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Gianluigi Donnarumma",
     "C:Insert Set": "",
-    "C:Auflage": "150"
+    "C:Auflage": "150",
+    "C:Besonderheiten": "Numbered, Gold First XI, Insert",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -398,7 +416,7 @@
    "set": "Topps Inception UEFA Club Competitions 2025-26",
    "parallel": "Emerging Stars",
    "title": "Divine Mukasa RC Topps Inception UCL Emerging Stars Manchester City No Auto",
-   "price": "9.90",
+   "price": "12.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -418,7 +436,8 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Divine Mukasa",
     "C:Insert Set": "",
-    "Quantity": "2"
+    "Quantity": "2",
+    "C:Besonderheiten": "Rookie, Emerging Stars, Insert"
    }
   },
   {
@@ -434,7 +453,7 @@
    "set": "Topps Chrome Premier League 2025-26",
    "parallel": "Refractor",
    "title": "Divine Mukasa RC Topps Chrome Premier League 2025-26 Refractor Man City No Auto",
-   "price": "9.90",
+   "price": "12.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -453,7 +472,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Divine Mukasa",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Rookie, Refractor"
    }
   },
   {
@@ -469,7 +489,7 @@
    "set": "Topps Chrome Premier League 2025-26",
    "parallel": "Gold Refractor",
    "title": "Rodri /275 Topps Chrome Premier League 2025-26 Gold Man City Numbered No Auto",
-   "price": "14.90",
+   "price": "5.90",
    "autograph": false,
    "serial": "226/275",
    "serial_conf": "sicher",
@@ -490,7 +510,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Rodri",
     "C:Insert Set": "",
-    "C:Auflage": "275"
+    "C:Auflage": "275",
+    "C:Besonderheiten": "Numbered, Gold Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -506,7 +528,7 @@
    "set": "Topps Chrome Premier League 2025-26",
    "parallel": "Blue Refractor",
    "title": "Bernardo Silva /299 Topps Chrome Premier League 2025-26 Blue Man City No Auto",
-   "price": "12.90",
+   "price": "3.90",
    "autograph": false,
    "serial": "187/299",
    "serial_conf": "sicher",
@@ -527,7 +549,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Bernardo Silva",
     "C:Insert Set": "",
-    "C:Auflage": "299"
+    "C:Auflage": "299",
+    "C:Besonderheiten": "Numbered, Blue Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -543,7 +567,7 @@
    "set": "Topps Stadium Club Chrome UEFA Club Competitions 2020-21",
    "parallel": "Orange Wave",
    "title": "Joao Cancelo Topps Stadium Club Chrome UCL Orange Wave Manchester City No Auto",
-   "price": "9.90",
+   "price": "3.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -562,7 +586,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "João Cancelo",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Orange Wave"
    }
   },
   {
@@ -578,7 +603,7 @@
    "set": "Topps Merlin Heritage 2022-23",
    "parallel": "Base RC",
    "title": "Julian Alvarez RC Topps Merlin Heritage 2022-23 Manchester City Rookie No Auto",
-   "price": "9.90",
+   "price": "5.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -597,7 +622,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Julián Álvarez",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Rookie"
    }
   },
   {
@@ -613,7 +639,7 @@
    "set": "Topps Match Attax 2023-24",
    "parallel": "Design Your Own Card Winner",
    "title": "Phil Foden Topps Match Attax Design Your Own Card Winner MAW1 Man City No Auto",
-   "price": "9.90",
+   "price": "4.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -632,7 +658,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Phil Foden",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Design Your Own Card Winner, Insert"
    }
   },
   {
@@ -648,7 +675,7 @@
    "set": "Topps Match Attax UEFA 2025-26",
    "parallel": "Stealth Strike",
    "title": "Omar Marmoush Topps Match Attax UCL 2025-26 Stealth Strike Man City No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -667,7 +694,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Omar Marmoush",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Stealth Strike, Insert"
    }
   },
   {
@@ -683,7 +711,7 @@
    "set": "Topps Chrome Match Attax UEFA 2021-22",
    "parallel": "Parallel",
    "title": "Raheem Sterling /15 Topps Chrome Match Attax UCL 2021-22 Man City No Auto",
-   "price": "24.90",
+   "price": "9.90",
    "autograph": false,
    "serial": "12/15",
    "serial_conf": "sicher",
@@ -704,7 +732,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Raheem Sterling",
     "C:Insert Set": "",
-    "C:Auflage": "15"
+    "C:Auflage": "15",
+    "C:Besonderheiten": "Numbered",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -720,7 +750,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Holo",
    "title": "Manuel Locatelli Donruss Optic 2023-24 Holo Juventus FIFA Panini Base No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -746,7 +776,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Holo"
    }
   },
   {
@@ -762,7 +793,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Silver Holo",
    "title": "Wojciech Szczesny Donruss Optic 2023-24 Silver Holo Juventus FIFA No Auto",
-   "price": "9.90",
+   "price": "3.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -789,7 +820,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Silver Holo"
    }
   },
   {
@@ -805,7 +837,7 @@
    "set": "Topps Finest Bundesliga 2023-24",
    "parallel": "Refractor",
    "title": "John Anthony Brooks /250 Topps Finest Bundesliga 2023-24 Hoffenheim No Auto",
-   "price": "14.90",
+   "price": "7.90",
    "autograph": false,
    "serial": "204/250",
    "serial_conf": "sicher",
@@ -826,7 +858,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "John Anthony Brooks",
     "C:Insert Set": "",
-    "C:Auflage": "250"
+    "C:Auflage": "250",
+    "C:Besonderheiten": "Numbered, Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -842,7 +876,7 @@
    "set": "Topps Chrome Bundesliga 2023-24",
    "parallel": "Green Refractor",
    "title": "Anton Stach /99 Topps Chrome Bundesliga 2023-24 Green TSG Hoffenheim No Auto",
-   "price": "14.90",
+   "price": "4.90",
    "autograph": false,
    "serial": "42/99",
    "serial_conf": "sicher",
@@ -863,7 +897,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Anton Stach",
     "C:Insert Set": "",
-    "C:Auflage": "99"
+    "C:Auflage": "99",
+    "C:Besonderheiten": "Numbered, Green Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -879,7 +915,7 @@
    "set": "Topps Chrome Bundesliga 2023-24",
    "parallel": "Pink Refractor",
    "title": "Alexander Prass RC /125 Topps Chrome Bundesliga 2023-24 Pink Hoffenheim No Auto",
-   "price": "14.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "038/125",
    "serial_conf": "sicher",
@@ -900,7 +936,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Alexander Prass",
     "C:Insert Set": "",
-    "C:Auflage": "125"
+    "C:Auflage": "125",
+    "C:Besonderheiten": "Rookie, Numbered, Pink Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -916,7 +954,7 @@
    "set": "Topps Chrome Bundesliga 2021-22",
    "parallel": "Wave Refractor",
    "title": "Andrej Kramaric /299 Topps Chrome Bundesliga 2021-22 Wave Hoffenheim No Auto",
-   "price": "12.90",
+   "price": "3.90",
    "autograph": false,
    "serial": "193/299",
    "serial_conf": "sicher",
@@ -937,7 +975,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Andrej Kramarić",
     "C:Insert Set": "",
-    "C:Auflage": "299"
+    "C:Auflage": "299",
+    "C:Besonderheiten": "Numbered, Wave Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -953,7 +993,7 @@
    "set": "Topps Chrome Bundesliga 2021-22",
    "parallel": "Rainbow Refractor",
    "title": "Andrej Kramaric /199 Topps Chrome Bundesliga 2021-22 Rainbow Hoffenheim No Auto",
-   "price": "14.90",
+   "price": "4.90",
    "autograph": false,
    "serial": "091/199",
    "serial_conf": "sicher",
@@ -974,7 +1014,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Andrej Kramarić",
     "C:Insert Set": "",
-    "C:Auflage": "199"
+    "C:Auflage": "199",
+    "C:Besonderheiten": "Numbered, Rainbow Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -990,7 +1032,7 @@
    "set": "Topps UEFA Club Competitions 2024-25",
    "parallel": "Speckle",
    "title": "Arthur Tape RC /250 Topps UCL 2024-25 Speckle Bayer Leverkusen Numbered No Auto",
-   "price": "14.90",
+   "price": "5.90",
    "autograph": false,
    "serial": "124/250",
    "serial_conf": "sicher",
@@ -1011,7 +1053,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Arthur Tapé",
     "C:Insert Set": "",
-    "C:Auflage": "250"
+    "C:Auflage": "250",
+    "C:Besonderheiten": "Rookie, Numbered, Speckle",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1027,7 +1071,7 @@
    "set": "Topps Merlin Premier League 2025-26",
    "parallel": "Mosaic RC",
    "title": "Chris Rigg RC Topps Merlin Premier League 2025-26 Mosaic Sunderland No Auto",
-   "price": "9.90",
+   "price": "6.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1046,7 +1090,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Chris Rigg",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Rookie, Mosaic RC"
    }
   },
   {
@@ -1062,7 +1107,7 @@
    "set": "Topps Simplicidad UEFA Club Competitions 2025-26",
    "parallel": "Base",
    "title": "Alvaro Carreras Topps Simplicidad UCL 2025-26 Real Madrid Base Insert No Auto",
-   "price": "9.90",
+   "price": "7.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1081,7 +1126,8 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Álvaro Carreras",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Insert"
    }
   },
   {
@@ -1097,7 +1143,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Red",
    "title": "Wojciech Szczesny /299 Donruss Optic 2023-24 Red Juventus FIFA Numbered No Auto",
-   "price": "12.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "234/299",
    "serial_conf": "sicher",
@@ -1125,7 +1171,9 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Numbered, Red",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1141,7 +1189,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Red",
    "title": "Wojciech Szczesny /299 Donruss Optic 2023-24 Red Juventus FIFA Numbered No Auto",
-   "price": "12.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "181/299",
    "serial_conf": "sicher",
@@ -1169,7 +1217,9 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Numbered, Red",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1185,7 +1235,7 @@
    "set": "Panini Donruss 2023-24",
    "parallel": "Aqua",
    "title": "Wojciech Szczesny Donruss Soccer 2023-24 Aqua Parallel Juventus FIFA No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1211,7 +1261,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Aqua"
    }
   },
   {
@@ -1227,7 +1278,7 @@
    "set": "Panini Donruss 2023-24",
    "parallel": "Aqua",
    "title": "Wojciech Szczesny Donruss Soccer 2023-24 Aqua Parallel Juventus FIFA No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1253,7 +1304,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Aqua"
    }
   },
   {
@@ -1269,7 +1321,7 @@
    "set": "Fire & Ice Limited 2022-23",
    "parallel": "Fire & Ice Limited",
    "title": "Adrien Rabiot Fire & Ice Limited UCL Champions League Juventus Insert No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1295,7 +1347,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Fire & Ice Limited, Insert"
    }
   },
   {
@@ -1311,7 +1364,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Holo",
    "title": "Adrien Rabiot Donruss Optic 2023-24 Holo Juventus FIFA Panini Base No Auto",
-   "price": "9.90",
+   "price": "2.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1337,7 +1390,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Holo"
    }
   },
   {
@@ -1353,7 +1407,7 @@
    "set": "Panini Donruss 2023-24",
    "parallel": "Blue",
    "title": "Federico Chiesa Donruss Soccer 2023-24 Blue Parallel Juventus FIFA No Auto",
-   "price": "9.90",
+   "price": "5.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1379,7 +1433,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Blue"
    }
   },
   {
@@ -1395,7 +1450,7 @@
    "set": "Panini Donruss Optic 2023-24",
    "parallel": "Holo",
    "title": "Federico Chiesa Donruss Optic 2023-24 Holo Juventus FIFA Panini Base No Auto",
-   "price": "9.90",
+   "price": "4.90",
    "autograph": false,
    "serial": null,
    "serial_conf": "keine",
@@ -1421,7 +1476,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Holo"
    }
   },
   {
@@ -1437,7 +1493,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2022-23",
    "parallel": "Pink Refractor",
    "title": "Matias Soule RC /125 Topps Chrome UCL 2022-23 Pink Refractor Juventus No Auto",
-   "price": "14.90",
+   "price": "7.90",
    "autograph": false,
    "serial": "028/125",
    "serial_conf": "sicher",
@@ -1458,7 +1514,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Matías Soulé",
     "C:Insert Set": "",
-    "C:Auflage": "125"
+    "C:Auflage": "125",
+    "C:Besonderheiten": "Rookie, Numbered, Pink Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1474,7 +1532,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2023-24",
    "parallel": "Purple Refractor",
    "title": "Gleison Bremer /75 Topps Chrome UCL 2023-24 Purple Juventus Numbered No Auto",
-   "price": "14.90",
+   "price": "5.90",
    "autograph": false,
    "serial": "53/75",
    "serial_conf": "sicher",
@@ -1495,7 +1553,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Gleison Bremer",
     "C:Insert Set": "",
-    "C:Auflage": "75"
+    "C:Auflage": "75",
+    "C:Besonderheiten": "Numbered, Purple Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1511,7 +1571,7 @@
    "set": "Topps Finest UEFA Club Competitions 2023-24",
    "parallel": "Checker Refractor",
    "title": "Pierre Kalulu /60 Topps Finest UCL 2023-24 Checker Juventus Numbered No Auto",
-   "price": "17.90",
+   "price": "7.90",
    "autograph": false,
    "serial": "54/60",
    "serial_conf": "sicher",
@@ -1532,7 +1592,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Pierre Kalulu",
     "C:Insert Set": "",
-    "C:Auflage": "60"
+    "C:Auflage": "60",
+    "C:Besonderheiten": "Numbered, Checker Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1548,7 +1610,7 @@
    "set": "Topps UEFA Club Competitions 2024-25",
    "parallel": "Parallel",
    "title": "Douglas Luiz /75 Topps UCL 2024-25 Juventus Numbered Parallel Midfielder No Auto",
-   "price": "14.90",
+   "price": "5.90",
    "autograph": false,
    "serial": "53/75",
    "serial_conf": "sicher",
@@ -1569,7 +1631,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Douglas Luiz",
     "C:Insert Set": "",
-    "C:Auflage": "75"
+    "C:Auflage": "75",
+    "C:Besonderheiten": "Numbered",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1585,7 +1649,7 @@
    "set": "Topps Chrome UEFA Club Competitions 2022-23",
    "parallel": "Pink Speckle Refractor",
    "title": "Nicolo Fagioli RC /175 Topps Chrome UCL 2022-23 Pink Speckle Juventus No Auto",
-   "price": "14.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "142/175",
    "serial_conf": "sicher",
@@ -1606,7 +1670,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Nicolò Fagioli",
     "C:Insert Set": "",
-    "C:Auflage": "175"
+    "C:Auflage": "175",
+    "C:Besonderheiten": "Rookie, Numbered, Pink Speckle Refractor",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1622,7 +1688,7 @@
    "set": "Topps Merlin UEFA Club Competitions 2023-24",
    "parallel": "Gold",
    "title": "Goncalo Ramos /50 Topps Merlin UCL 2023-24 Gold PSG Paris Saint-Germain No Auto",
-   "price": "19.90",
+   "price": "24.90",
    "autograph": false,
    "serial": "27/50",
    "serial_conf": "sicher",
@@ -1643,7 +1709,9 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Gonçalo Ramos",
     "C:Insert Set": "",
-    "C:Auflage": "50"
+    "C:Auflage": "50",
+    "C:Besonderheiten": "Numbered, Gold",
+    "C:Edition": "Limited Edition"
    }
   },
   {
@@ -1659,9 +1727,9 @@
    "set": "Topps Chrome UEFA Club Competitions 2023-24",
    "parallel": "Aqua Refractor",
    "title": "Nuno Mendes /299 Topps Chrome UCL 2023-24 Aqua Paris Saint-Germain PSG No Auto",
-   "price": "12.90",
+   "price": "3.90",
    "autograph": false,
-   "serial": "?/299",
+   "serial": null,
    "serial_conf": "sicher",
    "numbering": "?/299 (Zähler unsicher)",
    "set_unsicher": true,
@@ -1680,8 +1748,11 @@
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Nuno Mendes",
     "C:Insert Set": "",
-    "C:Auflage": "299"
-   }
+    "C:Auflage": "299",
+    "C:Besonderheiten": "Numbered, Aqua Refractor (Zähler unsicher)",
+    "C:Edition": "Limited Edition"
+   },
+   "serial_den": "?/299"
   },
   {
    "sku": "S0038-045",
@@ -1696,9 +1767,9 @@
    "set": "Topps Finest UEFA Club Competitions 2024-25",
    "parallel": "Gold Wave Auto",
    "title": "Warren Zaire-Emery Auto /150 Topps Finest UCL 2024-25 Gold Wave PSG Autograph",
-   "price": "39.90",
+   "price": "29.90",
    "autograph": true,
-   "serial": "?/150",
+   "serial": null,
    "serial_conf": "sicher",
    "numbering": "?/150 (Zähler unsicher)",
    "set_unsicher": true,
@@ -1719,8 +1790,11 @@
     "C:Insert Set": "",
     "C:Auflage": "150",
     "C:Autogrammart": "Autogramm",
-    "C:Signiert von": "Warren Zaïre-Emery"
-   }
+    "C:Signiert von": "Warren Zaïre-Emery",
+    "C:Besonderheiten": "Numbered, Autogramm, Gold Wave Auto (Zähler unsicher)",
+    "C:Edition": "Limited Edition"
+   },
+   "serial_den": "?/150"
   },
   {
    "sku": "S0038-046",
@@ -1735,7 +1809,7 @@
    "set": "Topps Finest UEFA Club Competitions 2024-25",
    "parallel": "Top of the World",
    "title": "Bradley Barcola /150 Topps Finest UCL 2024-25 Top of the World PSG No Auto",
-   "price": "17.90",
+   "price": "6.90",
    "autograph": false,
    "serial": "005/150",
    "serial_conf": "sicher",
@@ -1754,7 +1828,10 @@
     "C:Material": "Pappe",
     "C:Maßgefertigt": "Nein",
     "C:Kartenname": "Bradley Barcola",
-    "C:Insert Set": ""
+    "C:Insert Set": "",
+    "C:Besonderheiten": "Numbered, Top of the World, Insert",
+    "C:Edition": "Limited Edition",
+    "C:Auflage": "150"
    },
    "numbering": "005/150"
   },
@@ -1797,7 +1874,8 @@
     "Manufacturer StateOrProvince": "Provinz Modena",
     "Manufacturer PostalCode": "41126",
     "Manufacturer Country": "IT",
-    "Manufacturer Email": "hallo@panini.de"
+    "Manufacturer Email": "hallo@panini.de",
+    "C:Besonderheiten": "Icon, Insert"
    }
   }
  ],
@@ -1805,5 +1883,6 @@
   "specifics": {
    "*C:Sportart": "Fußball"
   }
- }
+ },
+ "min_price": 2.9
 }
